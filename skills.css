@@ -9,12 +9,18 @@
 body {
     height: 100vh;
     width: 100vw;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
 }
 
 header {
     height: 70px;
     width: 100%;
+}
+
+section {
+    width: 100%;
+    height: 90vh;
+    background: #D7ECFF;
 }
 
 .logo {
@@ -36,6 +42,7 @@ nav {
 .links {
     /* flex: 1; */
     text-align: right;
+    list-style-type: none;
 }
 
 .links ul li {
@@ -55,46 +62,39 @@ a {
     color: blue;
 }
 
-.section-one {
-    width: 100%;
-    height: 90vh;
-    background-image: url(images/splash.jpg);
-    background-position: center;
-    background-size: cover;
+.heading-1 {
+    text-align: center;
+    color: blue;
+    font-size: 40px;
+    margin-bottom: 20px;
+    padding-top: 20px;
 }
 
-.container {
+.div-row h1 {
+    color: blue;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.div-row p {
+    font-size: 20px;
+}
+
+.div-row img {
+    width: 20%;
+    /* margin: 0 auto;
+    text-align: center; */
+}
+
+.container-row {
     display: flex;
     justify-content: space-between;
+    text-align: center;
+    margin: 0 auto
 }
 
-.col-left {
-    margin: 50px 40px;
-}
-
-p {
-    color: #339BB8;
-    font-size: 20px;
-    font-weight: 300;
-}
-
-h1 {
-    font-size: 40px;
-    font-weight: bold;
-}
-
-span {
-    color: blue;
-}
-
-.profile {
-    border-radius: 50%;
-    height: 500px;
-    margin-right: 20px;
-    ;
-}
-
-.socials {
-    margin: 60px 10px 10px 20px;
-    height: 40px;
+.div-row {
+    background: white;
+    margin: 30px;
+    padding: 30px;
 }
