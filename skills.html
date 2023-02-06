@@ -13,17 +13,19 @@
     <header>
         <nav>
             <div class="logo"></div>
-            <div class="links">
+            <div class="links" id="linkMenu">
+                <img src="images/close.png" alt="" class="close" onclick="closeBar()">
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About me</a></li>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About me</a></li>
                     <li><a href="">skills</a></li>
-                    <li><a href="">Portofolio</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">Contact me</a></li>
-                    <li><a href="">Login</a></li>
+                    <li><a href="./portofolio.html">Portofolio</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./contact.html">Contact me</a></li>
+                    <li><a href="./login.html">Login</a></li>
                 </ul>
             </div>
+            <img src="images/menu.png" alt="" class="menu" onclick="menuBar()">
         </nav>
     </header>
     <section>
@@ -49,6 +51,18 @@
             </div>
         </div>
     </section>
+    <script>
+        var linkMenu = document.getElementById('linkMenu');
+
+        function closeBar() {
+            linkMenu.style.right = '0';
+        }
+
+        function menuBar() {
+            linkMenu.style.right = "-200px";
+
+        }
+    </script>
 </body>
 
 </html>

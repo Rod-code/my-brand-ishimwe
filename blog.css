@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Open Sans';
+}
+
+header {
+    height: 70px;
+    width: 100%;
+}
+
+.logo {
+    background: blue;
+    height: 50px;
+    width: 50px;
+    color: blue;
+    border-radius: 50%;
+    padding: 16px;
+    margin: 16px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.links {
+    /* flex: 1; */
+    text-align: right;
+}
+
+.links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 0 6px;
+    position: relative;
+    font-weight: bold;
+}
+
+a {
+    color: black;
+}
+
+.links ul li a:hover {
+    color: blue;
+}
+
+section {
+    width: 100%;
+    height: 90vh;
+    background: #D7ECFF;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    color: blue;
+    padding-bottom: 10px;
+}
+
+.post-blog {
+    width: 350px;
+    background: white;
+    border: 1px solid black;
+    margin: 20px;
+}
+
+.img-blog img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.post-test {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.link-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: blue;
+    text-decoration: none;
+    margin: 20px;
+}
+
+.text {
+    color: rgb(81, 77, 77);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px;
+}
+
+.rd-more {
+    color: black;
+    margin-left: 17px;
+}
+
+.rd-more:hover {
+    color: blue;
+}
+
+.div-react {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 20px 20px 0;
+    padding: 10px;
+}
+
+.img-react {
+    height: 30px;
+    width: 30px;
+    margin: 0 10px 0 10px;
+}
+
+
+/* 
+.name {
+    margin-left: 20px;
+} */
+
+
+/* .date {
+    margin-left: 40px;
+} */

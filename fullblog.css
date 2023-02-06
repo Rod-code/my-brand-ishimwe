@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Open Sans';
+}
+
+header {
+    height: 70px;
+    width: 100%;
+}
+
+.container {
+    height: 100vh;
+    width: 60%;
+}
+
+h1 {
+    text-align: center;
+    color: blue;
+    margin: 30px;
+}
+
+h2 {
+    color: rgb(0, 166, 255);
+    margin-left: 60px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-left: 60px;
+}
+
+.text {
+    margin: 20px 150px 0 60px;
+}
+
+.logo {
+    background: blue;
+    height: 50px;
+    width: 50px;
+    color: blue;
+    border-radius: 50%;
+    padding: 16px;
+    margin: 16px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.links {
+    /* flex: 1; */
+    text-align: right;
+}
+
+.links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 0 6px;
+    position: relative;
+    font-weight: bold;
+}
+
+a {
+    color: black;
+}
+
+.links ul li a:hover {
+    color: blue;
+}
+
+.img-post {
+    width: 80%;
+    height: 500px;
+    margin-left: 60px;
+}
+
+input,
+textarea {
+    width: 500px;
+    padding: 10px;
+    margin: 10px 300px;
+    margin-bottom: 4px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100px;
+    display: block;
+    color: white;
+    background: blue;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    padding: 10px 30px 10px 30px;
+    margin-bottom: 20px;
+}

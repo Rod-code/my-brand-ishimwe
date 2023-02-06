@@ -14,17 +14,20 @@
     <header>
         <nav>
             <div class="logo"></div>
-            <div class="links">
+            <div class="links" id="linkMenu">
+                <img src="images/close.png" alt="" class="close" onclick="closeBar()">
                 <ul>
-                    <li><a href="">Home</a></li>
+                    <li><a href="./index.html">Home</a></li>
                     <li><a href="">About me</a></li>
-                    <li><a href="">skills</a></li>
-                    <li><a href="">Portofolio</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">Contact me</a></li>
-                    <li><a href="">Login</a></li>
+                    <li><a href="./skills.html">skills</a></li>
+                    <li><a href="./portofolio.html">Portofolio</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./contact.html">Contact me</a></li>
+                    <li><a href="./login.html">Login</a></li>
                 </ul>
             </div>
+            <img src="images/menu.png" alt="" class="menu" onclick="menuBar()">
+        </nav>
         </nav>
     </header>
     <section class="section-one">
@@ -33,12 +36,24 @@
                 <img src="images/DSC_3745.png" alt="" srcset="" class="profile">
                 <h1>About me</h1>
                 <h2>HI, i am ishimwe rodrigue</h2>
-                <p>software developer and a tech enthusiast a highly <br> motivated and skilled professional with a passion,<br> and hard work.</p>
+                <p>software developer and a tech enthusiast a highly motivated and skilled professional with a passion,and hard work. with a passion and time and effort</p>
 
             </div>
 
         </div>
     </section>
+    <script>
+        var linkMenu = document.getElementById('linkMenu');
+
+        function closeBar() {
+            linkMenu.style.right = '0';
+        }
+
+        function menuBar() {
+            linkMenu.style.right = "-200px";
+
+        }
+    </script>
 </body>
 
 </html>
