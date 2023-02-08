@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans&family=Poppins&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Open Sans';
+    overflow: hidden;
+}
+
+header {
+    height: 70px;
+    width: 100%;
+}
+
+.logo {
+    background: blue;
+    height: 50px;
+    width: 50px;
+    color: blue;
+    border-radius: 50%;
+    padding: 16px;
+    margin: 16px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.close,
+.menu {
+    display: none;
+}
+
+.links {
+    /* flex: 1; */
+    text-align: right;
+}
+
+.links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 0 6px;
+    position: relative;
+    font-weight: bold;
+}
+
+a {
+    color: black;
+}
+
+.links ul li a:hover {
+    color: blue;
+}
+
+.section-one {
+    width: 100%;
+    height: 90vh;
+    background-image: url(images/bg-about.gif);
+    background-position: center;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-left {
+    margin: 0 auto;
+    text-align: center;
+}
+
+p {
+    color: #339BB8;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 20px;
+    color: #339BB8;
+    ;
+}
+
+h2 {
+    color: blue;
+    padding-bottom: 20px;
+    font-size: 30px;
+}
+
+p {
+    color: black;
+    margin: 0 20px 0 20px;
+}
+
+.profile {
+    border-radius: 50%;
+    height: 150px;
+    margin-right: 20px;
+}
+
+@media(max-width:768px) {
+    body {
+        height: 100vh;
+        width: 100%;
+        font-family: 'Open Sans';
+    }
+    header {
+        height: 70px;
+        width: 100%;
+    }
+    .section-one {
+        width: 100vw;
+        height: 100vh;
+        background-image: url(images/splash.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    .links ul li {
+        position: block;
+    }
+    .links {
+        position: absolute;
+        background: white;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 4;
+        transition: 1s;
+    }
+    .close,
+    .menu {
+        display: block;
+        height: 25px;
+        color: black;
+        cursor: pointer;
+        margin: 20px;
+    }
+    .container {
+        display: block;
+    }
+    .profile {
+        height: 200px;
+        margin-left: 50px;
+    }
+    p {
+        font-size: 20px;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        letter-spacing: 0.5px;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    .socials {
+        display: inline;
+        height: 35px;
+    }
+}
