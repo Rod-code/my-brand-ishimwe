@@ -29,20 +29,33 @@
     <section>
         <h1>Login</h1>
         <div class="container">
-            <form action="">
+            <form action="index.html" method="post" id="form">
 
-                <input type="text" name="names" id="names" placeholder="Names" required>
-                <input type="text" name="password" id="password" placeholder="Password" required>
-                <p class="signup">Don't have an account <a href="./signup.html">  Sign up</a> here</p>
+                <!-- <div class="div-form ">
+                    <label for="username">username</label>
+                    <input type="text" name="name" id="username" placeholder="Names">
+                    <small>error message</small>
+                </div> -->
+                <div class="div-form ">
+                    <label for="username">Email</label>
+                    <input type="text" name="email" id="email" placeholder="Email">
+                    <small>error message</small>
+                </div>
+                <div class="div-form">
+                    <label for="username">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Password" hidden>
+                    <small>error message</small>
+                </div>
+                <p class="login">dont have an account <a href="./signup.html" class="signup">  Sign up</a> here</p>
 
 
-                <a href="./dashboard.html"><input type="submit" value="Login"></a>
+                <input type="submit" value="Login" id="submit">
 
 
             </form>
         </div>
     </section>
-
+    <script src="login.js"></script>
 </body>
 
 </html>

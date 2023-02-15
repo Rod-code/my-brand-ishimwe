@@ -58,7 +58,7 @@ a {
 
 section {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     background: #D7ECFF;
 }
 
@@ -71,33 +71,40 @@ h1 {
 
 .div-container {
     display: flex;
-    column-gap: 350px;
+    column-gap: 300px;
     /* justify-content: space-between; */
 }
 
 .div-left {
-    margin-left: 100px;
+    margin-left: 120px;
+    margin-top: 50px;
 }
 
 label {
     display: block;
     font-size: 16px;
-    margin: 10px 20px;
+    margin: 10px 20px 0px 20px;
     width: 100%;
 }
 
 input,
 textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 20px;
-    margin-bottom: 4px;
-    border: 1px solid black;
+    min-width: 500px;
+    background: #c5cacf;
+    padding: 15px;
+    margin: 5px 20px 10px 20px;
+    border: 0;
     box-sizing: border-box;
+    outline: none;
+    border-radius: 10px;
+}
+
+textarea {
+    max-height: 150px
 }
 
 input[type="submit"] {
-    width: 60%;
+    width: 200px;
     display: inline-block;
     color: white;
     background: blue;
@@ -105,9 +112,11 @@ input[type="submit"] {
     border: none;
     cursor: pointer;
     padding: 14px 32px;
+    margin-left: 33px;
 }
 
 .div-right {
+    margin-right: 120px;
     display: block;
     margin-top: 30px;
     padding: 30px;
@@ -132,4 +141,14 @@ p {
 
 div {
     margin: 20px;
+}
+
+.fail {
+    color: red;
+    margin-top: 0px;
+    font-size: 12px;
+}
+
+.hidden {
+    display: none;
 }

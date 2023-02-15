@@ -79,10 +79,9 @@ h2 {
     margin-left: 10px;
 }
 
-
-/* .div-form {
-    text-align: center;
-} */
+.div-form {
+    min-width: 600px;
+}
 
 label {
     /* text-align: left; */
@@ -117,4 +116,24 @@ input[type="submit"] {
     cursor: pointer;
     padding: 10px 30px 10px 30px;
     margin-bottom: 20px;
+}
+
+#display {
+    width: 100px;
+    height: 100px;
+    border: solid 1px black;
+    background-position: center;
+    background-size: cover;
+    margin-left: 300px;
+}
+
+.fail {
+    color: red;
+    margin-top: 0px;
+    font-size: 12px;
+    margin-left: 300px;
+}
+
+.hidden {
+    display: none;
 }

@@ -72,20 +72,30 @@ h1 {
     font-weight: bold;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-top: 20px;
 }
 
 .container {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 50px;
+}
+
+.div-form {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.div-form label {
+    display: inline-block;
+    margin-top: 5px;
 }
 
 input {
     display: block;
-    min-width: 500px;
-    border: none;
-    margin-top: 50px;
-    padding: 20px;
+    min-width: 400px;
+    border: 0;
+    padding: 15px;
     background: #c5cacf;
 }
 
@@ -102,10 +112,31 @@ input[type="submit"] {
     margin-top: 20px;
 }
 
-.signup {
+.login {
     margin-top: 20px;
 }
 
-.signup a:hover {
+.signup {
     color: blue;
+}
+
+.signup a:hover {
+    color: white;
+}
+
+.div-form.pass input {
+    border-color: green;
+}
+
+.div-form.fail input {
+    border-color: red;
+}
+
+.div-form small {
+    visibility: hidden;
+}
+
+.div-form.fail small {
+    color: red;
+    visibility: visible;
 }
