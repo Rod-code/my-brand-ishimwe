@@ -41,7 +41,7 @@
                 </div>
                 <div class="group-form">
                     <label for="">Author</label>
-                    <input type="text" name="name" id="name" placeholder="Enter your names">
+                    <input type="text" name="author" id="author" placeholder="Enter your names">
                     <div class="fail hidden">your names are required</div>
                 </div>
                 <div class="group-form">
@@ -56,11 +56,28 @@
                 <input type="date" name="date" id="date"> -->
                     <label for="">Article</label>
                     <textarea name="article" id="article" cols="30" rows="10" placeholder="Write an article"></textarea>
-                    <div class="fail hidden">your email is required</div>
+                    <div class="fail hidden">the content is required</div>
                 </div>
-                <input type="submit" value="Post">
+                <input id="submit" type="submit" value="Post" onclick="AddArticle()">
+                <!-- <button id="submit" onclick="addArticle()"></button> -->
 
             </form>
+            <div class="container-row">
+                <table id="article-table">
+                    <thead>
+                        <tr>
+
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Image</th>
+                            <th>Article</th>
+                        </tr>
+
+                    </thead>
+                    <tbody></tbody>
+
+                </table>
+            </div>
     </section>
     <script src="blogform.js"></script>
 </body>
