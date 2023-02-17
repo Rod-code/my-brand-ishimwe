@@ -1,98 +1,100 @@
-const form = document.getElementById("form");
-const fullName = document.getElementById("fullname");
-const emailAddress = document.getElementById("email");
-// const phoneNumber = document.getElementById("phonenumber");
-
-const message = document.getElementById("message");
-// const thankYou = document.getElementById("thanks")
+function validateQuery() {
+    // const form = document.getElementById("form");
+    var fullName = document.getElementById("fullname").value;
+    var emailAddress = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
 
 
 
-const isValidEmail = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-};
 
-// const isValidPhone = (phone) => {
-//     const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-//     return re.test(String(phone).toLowerCase());
-// };
+    if (fullName === '') {
+        alert("your name required")
+        return false;
 
-const inputs = [
-    fullName,
-    emailAddress,
-    // phoneNumber,
-    message
-]
-
-let isFormValid = false;
-let isValidOn = false;
-
-const resetForm = (el) => {
-    el.nextElementSibling.classList.add("hidden");
-
-};
-
-const invalidForm = (el) => {
-    el.nextElementSibling.classList.remove("hidden");
-
-}
-
-const validForm = () => {
-    if (!isValidOn) return
-    isFormValid = true;
-
-    inputs.forEach(resetForm)
-
-    if (!fullName.value) {
-        isFormValid = false;
-        invalidForm(fullName);
     }
-    if (!isValidEmail(emailAddress.value)) {
-        isFormValid = false;
-        invalidForm(emailAddress);
+    if (emailAddress === '') {
+        alert("your is required");
+        return false;
+
+    } else if (!emailAddress.includes("@")) {
+        alert("Please enter a valid email address");
+        return false;
+    } else if (message === '') {
+        alert("Please enter a message");
+        return false;
     }
-    // if (!isValidPhone(phoneNumber.value)) {
-    //     isFormValid = false;
-    //     invalidForm(phoneNumber);
-    // }
-    if (!message.value) {
-        isFormValid = false;
-        invalidForm(message);
-    }
+    return true;
 }
 
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    isValidOn = true;
-    validForm();
-    // if (isFormValid) {
-    //     form.remove();
-    //     thankYou.classList.remove("hidden");
-    // }
-});
 
-inputs.forEach((input) => {
-    input.addEventListener("input", () => {
-        validForm();
+
+
+
+
+function showData() {
+    var queryList;
+    if (localStorage.getItem("queryList") == null) {
+        queryList = [];
+
+    } else {
+        queryList = JSON.parse(localStorage.getItem("queryList"));
+    }
+    var html = "";
+
+
+    queryList.forEach(function(element) {
+        html += "<tr>";
+        html += "<td>" + element.fullName + "</td>";
+        html += "<td>" + element.emailAddress + "</td>";
+        html += "<td>" + element.message + "</td>";
+        html += "</tr>";
     });
-
-});
-
-
-const contacts = [{
-    fullame: "ishimwe",
-    email: "ishimwerodrgiue10@gmail.com",
-    message: "Hello are you there"
-}];
-const addMsg = (fullname, email, message) => {}
-
-const createMsgEl = () => {
-    const MsgTable = document.createElement('table');
-    const msgName = document.createElement('td');
-    const msgEmail = document.createElement('td');
-    const msg = document.createElement('td');
-
-
+    document.querySelector("#query-table tbody").innerHTML = html;
 }
+
+document.onload = showData();
+
+function AddQuery() {
+    if (validateQuery() == true) {
+        var fullName = document.getElementById("fullname").value;
+        var emailAddress = document.getElementById("email").value;
+        var message = document.getElementById("message").value;
+
+
+
+        var queryList;
+        if (localStorage.getItem("queryList") == null) {
+            queryList = [];
+
+        } else {
+            queryList = JSON.parse(localStorage.getItem("queryList"));
+        }
+
+        queryList.push({
+            fullName: fullName,
+            emailAdress: emailAddress,
+            message: message,
+
+        });
+
+        localStorage.setItem("queryList", JSON.stringify(queryList));
+        showData();
+        document.getElementById("fullname").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+
+
+    }
+}
+
+
+
+
+
+
+
+// const isValidEmail = (email) => {
+//     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//     return re.test(String(email).toLowerCase());
+// };

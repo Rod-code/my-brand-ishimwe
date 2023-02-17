@@ -17,7 +17,7 @@ body {
 .sidebar {
     background: #34B5D1;
     width: 300px;
-    height: 120vh;
+    height: 140vh;
 }
 
 .panel {
@@ -168,4 +168,24 @@ thead tr th {
 .edited-button:hover,
 .deleteed-button:hover {
     color: red;
+}
+
+#update {
+    display: none;
+}
+
+.delete-button {
+    color: red;
+}
+
+.edit-button {
+    color: blue;
+}
+
+.edit-button,
+.delete-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
 }

@@ -1,95 +1,54 @@
-const form = document.getElementById("form");
-const title = document.getElementById("title");
-const author = document.getElementById("author");
-const imagePicker = document.getElementById("image-picker");
-const article = document.getElementById("article");
-const submit = document.getElementById('submit');
-
-var uploadImage = "";
-
-imagePicker.addEventListener("change", function() {
-    const fileUpload = new FileReader();
-
-    fileUpload.addEventListener("load", () => {
-        localStorage.setItem("image-picker", fileUpload)
-        uploadImage = fileUpload.result;;
-        document.getElementById("display").style.backgroundImage = `url(${uploadImage})`;
-
-    });
-    fileUpload.readAsDataURL(this.files[0]);
-})
+function validateForm() {
+    // const form = document.getElementById("form");
+    var title = document.getElementById("title").value;
+    var author = document.getElementById("author").value;
+    var imagePicker = document.getElementById("image-picker").value;
+    var article = document.getElementById("article").value;
 
 
 
+    if (title === '') {
+        alert("Title is required")
+        return false;
 
+    }
+    if (author === '') {
+        alert("author is required")
+        return false;
 
-const inputs = [
-    title,
-    author,
-    imagePicker,
-    article
-]
-
-let isFormValid = false;
-let isValidOn = false;
-
-const resetForm = (el) => {
-    el.nextElementSibling.classList.add("hidden");
-
-};
-
-const invalidForm = (el) => {
-    el.nextElementSibling.classList.remove("hidden");
+    }
+    if (imagePicker === '') {
+        alert("image is required")
+        return false;
+    }
+    if (article === '') {
+        alert("article is required")
+        return false;
+    }
+    return true;
 
 }
 
-const validForm = () => {
-    if (!isValidOn) return
-    isFormValid = true;
-
-    inputs.forEach(resetForm)
-
-    if (!title.value) {
-        isFormValid = false;
-        invalidForm(title);
-    }
-    if (!author.value) {
-        isFormValid = false;
-        invalidForm(author);
-    }
-    if (!imagePicker.value) {
-        isFormValid = false;
-        invalidForm(imagePicker);
-    }
-    if (!article.value) {
-        isFormValid = false;
-        invalidForm(article);
-    }
-    if (!imagePicker.value) {
-        isFormValid = false;
-        invalidForm(imagePicker);
-    }
-}
 
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    isValidOn = true;
-    validForm();
-    showData();
-    AddArticle();
-    // if (isFormValid) {
-    //     form.remove();
-    //     thankYou.classList.remove("hidden");
-    // }
-});
+// const imagePicker = document.getElementById("image-picker").value;
+// var uploadImage = "";
 
-inputs.forEach((input) => {
-    input.addEventListener("input", () => {
-        validForm();
-    });
+// imagePicker.addEventListener("change", function() {
+//     const fileUpload = new FileReader();
 
-});
+//     fileUpload.addEventListener("load", () => {
+//         localStorage.setItem("image-picker", fileUpload)
+//         uploadImage = fileUpload.result;;
+//         document.getElementById("display").style.backgroundImage = `url(${uploadImage})`;
+
+//     });
+//     fileUpload.readAsDataURL(this.files[0]);
+// })
+
+
+
+
 
 
 
@@ -112,10 +71,10 @@ function showData() {
         html += "<td>" + element.imagePicker + "</td>";
         html += "<td>" + element.article + "</td>";
         html +=
-            '<td><button onclick=" deleteArticle(' +
+            '<td><button onclick="deleteArticle(' +
             index +
-            ') " id="delete ">Delete</button><button onclick="updateArticle(' +
-            index + ') " id="edit ">Edit</button></td>';
+            ')" class="delete-button">Delete</button><button onclick="updateArticle(' +
+            index + ')" class="edit-button">Edit</button></td>';
         html += "</tr>";
     });
     document.querySelector("#article-table tbody").innerHTML = html;
@@ -124,7 +83,7 @@ function showData() {
 document.onload = showData();
 
 function AddArticle() {
-    if (validForm() == true) {
+    if (validateForm() == true) {
         var title = document.getElementById("title").value;
         var author = document.getElementById("author").value;
         var imagePicker = document.getElementById("image-picker").value;
@@ -158,34 +117,34 @@ function AddArticle() {
 
 function deleteArticle(index) {
     var blogList;
-    if (localStorage.getItem("peopleList") == null) {
+    if (localStorage.getItem("blogList") == null) {
         blogList = [];
     } else {
-        blogList = Json.parse(localStorage.getItem("blogList"));
+        blogList = JSON.parse(localStorage.getItem("blogList"));
     }
     blogList.splice(index, 1);
     localStorage.setItem("blogList", JSON.stringify(blogList));
-    showData;
+    showData();
 }
 
-function updateData(index) {
+function updateArticle(index) {
     document.getElementById("submit").style.display = "none";
-    document.getElementById("submit").style.display = "block";
+    document.getElementById("update").style.display = "block";
 
     var blogList;
     if (localStorage.getItem("blogList") == null) {
-        blogList = []; //
+        blogList = [];
     } else {
-        blogList = JSON.parse(localStorage.getItem("bloglList"));
+        blogList = JSON.parse(localStorage.getItem("blogList"));
     }
 
     document.getElementById("title").value = blogList[index].title;
     document.getElementById("author").value = blogList[index].author;
     document.getElementById("image-picker").value = blogList[index].imagePicker;
-    document.getElementById("title").value = blogList[index].article;
+    document.getElementById("article").value = blogList[index].article;
 
-    document.querySelector("#submit").onclick = function() {
-        if (validForm() == true) {
+    document.querySelector("#update").onclick = function() {
+        if (validateForm() == true) {
             blogList[index].title = document.getElementById("title").value;
             blogList[index].author = document.getElementById("author").value;
             blogList[index].imagePicker = document.getElementById("image-picker").value;
@@ -198,7 +157,7 @@ function updateData(index) {
             document.getElementById("image-picker").value = "";
             document.getElementById("article").value = "";
             document.getElementById("submit").style.display = "block";
-            document.getElementById("submit").style.display = "none";
+            document.getElementById("update").style.display = "none";
         }
 
     }

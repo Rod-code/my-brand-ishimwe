@@ -83,7 +83,7 @@ function signIn() {
     const targetUser = users.find(user => user.email == email.value);
     if (targetUser && targetUser.password == password.value) {
         localStorage.setItem('currentUser', JSON.stringify(targetUser))
-        window.location.href = "./index.html";
+        window.location.href = "./dashboard.html";
     } else if (targetUser && targetUser.password != password.value) {
         alert('wrong password');
         // } else {

@@ -30,7 +30,7 @@
         <h1>Contact me</h1>
         <div class="div-container">
             <div class="div-left">
-                <form action="queries.html" id="form">
+                <form action="" id="form" onsubmit="AddQuery();">
                     <div div class="form-div">
                         <label for="">FullName</label>
                         <input type="text" name="fullname" id="fullname" placeholder="FullName">
@@ -39,7 +39,7 @@
 
                     <div class="form-div">
                         <label for="">Email</label>
-                        <input type="text" name="email" id="email" placeholder="Email">
+                        <input type="email" name="email" id="email" placeholder="Email">
                         <div class="fail hidden">your email is required</div>
                     </div>
                     <!-- <div class="form-div">
@@ -54,7 +54,7 @@
                         <div class="fail hidden "> your message is required</div>
                     </div>
 
-                    <input type="submit" value="send a message">
+                    <input type="submit" value="send a message" onclick="AddQuery()">
 
 
                 </form>
