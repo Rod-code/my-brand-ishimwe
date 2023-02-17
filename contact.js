@@ -73,7 +73,7 @@ function AddQuery() {
 
         queryList.push({
             fullName: fullName,
-            emailAdress: emailAddress,
+            emailAddress: emailAddress,
             message: message,
 
         });
