@@ -7,6 +7,7 @@ function validateForm() {
 
 
 
+
     if (title === '') {
         alert("Title is required")
         return false;
@@ -31,20 +32,28 @@ function validateForm() {
 
 
 
-// const imagePicker = document.getElementById("image-picker").value;
-// var uploadImage = "";
 
-// imagePicker.addEventListener("change", function() {
-//     const fileUpload = new FileReader();
+document.querySelector("#image-picker").addEventListener('change', function() {
+    const fileUpload = new FileReader();
 
-//     fileUpload.addEventListener("load", () => {
-//         localStorage.setItem("image-picker", fileUpload)
-//         uploadImage = fileUpload.result;;
-//         document.getElementById("display").style.backgroundImage = `url(${uploadImage})`;
 
-//     });
-//     fileUpload.readAsDataURL(this.files[0]);
-// })
+    fileUpload.addEventListener("load", () => {
+        localStorage.setItem("load-image", fileUpload.result);
+
+
+    });
+    fileUpload.readAsDataURL(files[0]);
+
+
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const imageUrl = localStorage.getItem("load-image");
+    if (imageUrl) {
+        document.querySelector("#display").setAttribute("src", imageUrl);
+    }
+});
+
 
 
 
