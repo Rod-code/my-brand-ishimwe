@@ -6,7 +6,7 @@ blogsBox.forEach((element) => {
     blog.insertAdjacentHTML('afterbegin', `
     <div class="post-blog">
     <div class="img-blog">
-    <img src="${element.imagePicker}"></img>
+    <img src="${element.imageUrl}"></img>
     </div>
     <div class="post-test">
         <a href="" class="link-title">${element.title}</a>

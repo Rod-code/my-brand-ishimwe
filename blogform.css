@@ -118,10 +118,9 @@ input[type="submit"] {
     margin-bottom: 20px;
 }
 
-#display {
+#img-url {
     width: 100px;
     height: 100px;
-    border: solid 1px black;
     background-position: center;
     background-size: cover;
     margin-left: 300px;
