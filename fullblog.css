@@ -89,7 +89,7 @@ a {
 
 .img-post {
     width: 80%;
-    height: 500px;
+    height: 300px;
     margin-left: 60px;
 }
 
@@ -114,7 +114,7 @@ label {
     /* text-align: left; */
     display: block;
     font-size: 16px;
-    margin: 10px 300px;
+    margin-left: 60px;
     width: 500px;
 }
 
@@ -123,11 +123,17 @@ textarea {
     text-align: left;
     width: 500px;
     padding: 10px;
-    margin: 10px 300px;
+    margin-left: 60px;
     margin-bottom: 4px;
     background: #F3F3F3;
-    border: 1px solid black;
+    border: 1px solid rgb(79, 76, 76);
     box-sizing: border-box;
+}
+
+textarea {
+    max-height: 300px;
+    min-height: 200px;
+    max-width: 500px;
 }
 
 input[type="submit"] {
@@ -140,25 +146,57 @@ input[type="submit"] {
     cursor: pointer;
     padding: 10px 30px 10px 30px;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .form {
     margin: auto;
+    margin-top: 80px;
 }
 
-.comment {
+.comment-box {
     flex-basis: 30%;
     border-radius: 10px;
     text-align: center;
     background: rgb(150, 150, 245);
     padding: 20px;
     display: flex;
-    margin: 20px;
+    margin: 60px;
 }
 
-.comment img {
-    height: 40px;
-    margin-left: 5px;
-    margin-right: 30px;
-    border-radius: 50px;
+.div-form {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.div-form label {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.div-form.pass input {
+    border-color: green;
+}
+
+.div-form.fail input {
+    border-color: red;
+}
+
+.div-form small {
+    visibility: hidden;
+}
+
+.div-form.fail small {
+    color: red;
+    visibility: visible;
+}
+
+small {
+    margin-left: 60px;
+}
+
+.img-react {
+    height: 30px;
+    width: 30px;
+    margin: 0 10px 0 10px;
 }

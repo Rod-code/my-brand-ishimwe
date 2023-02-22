@@ -12,7 +12,7 @@ blogsBox.forEach((element) => {
         <a href="" class="link-title">${element.title}</a>
         <p class="author">${element.author}</p>
         <p class="text">${element.article}</p>
-        <a href="" class="rd-more">Read More</a>
+        <a href="./fullblog.html" class="rd-more">Read More</a>
         <div class="div-react">
             <img src="images/chat.png" alt="" class="img-react">
             <p>1</p>

@@ -30,31 +30,45 @@
         <h1>Latest Blog</h1>
         <div class="container">
 
-            <h2>the future of Flutter framework in mobile development</h2>
-            <img src="images/paris.jpg" alt="" class="img-post">
-            <p class="date">jan 26th 2023</p>
-            <p class="date">by ishimwe rodrigue</p>
 
-            <p class="text">I am interested in being considered for a professional internship. I am currently waiting for graduation at the University of Kigali where I specialized in Finance. My previous work experience has increased my knowledge in Finance and has
+            <!-- <p class="text">I am interested in being considered for a professional internship. I am currently waiting for graduation at the University of Kigali where I specialized in Finance. My previous work experience has increased my knowledge in Finance and has
                 enabled me to make use of my education in an environment. I am very serious about my previous education, work experience and future career as I am eager to learn as much as possible throughout my internship. I am interested in working
                 for your organization to gain practical experience and additional knowledge pertaining to my field of study.
-            </p>
+            </p> -->
             <!-- <div class="comment">
                 <p>1</p>
                 <p>comment</p>
             </div> -->
+
             <div class="form">
-                <form action="" id="form">
-                    <label for="">1 Comment</label>
-                    <textarea name="message" id="input-form" cols="30" rows="10" placeholder="Write a comment"></textarea>
-                    <input type="submit" value="Post">
+                <p>leave a comment</p>
+                <img src="images/like.png" alt="" class="img-react">
+
+                <form action="" id="form" onsubmit="AddComment()">
+                    <div class=" div-form">
+                        <label for="Name">Name</label>
+                        <input type="text" name="name" id="user-name" placeholder="enter your name"> <br>
+                        <small>error message</small>
+
+                    </div>
+                    <div class=" div-form">
+                        <label for=""> Comment</label>
+                        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Write a comment"></textarea> <br>
+                        <small>error message</small>
+                        <input type="submit" value="Submit" onclick="AddComment()">
+                    </div>
+
                 </form>
+                <div class="like-count">
+                    <img src="images/like.png" alt="" class="img-react">
+                    <small class="count"></small>
+                </div>
             </div>
 
-            <div class="comment">
-                <img src="images/DSC_3745.png" alt="">
+            <div class="comment-box">
+
                 <div>
-                    <p>this topic is useful this topic is useful this topic is useful this topic is useful this topic is useful this topic is useful this topic is useful</p>
+                    <p class="text">this topic is useful this topic is useful this topic is useful this topic is useful this topic is useful this topic is useful this topic is useful</p>
                     <h3>ishimwe rodrigue</h3>
                 </div>
 
@@ -62,11 +76,11 @@
 
 
         </div>
-        <script src="fullblog.js"></script>
+
     </section>
 
 
-
+    <script src="fullblog.js"></script>
 </body>
 
 </html>
