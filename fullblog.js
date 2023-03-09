@@ -1,22 +1,22 @@
 const blog = document.querySelector(".container");
 const blogsBox = JSON.parse(localStorage.getItem("blogList")) || [];
 // console.log(blogsDetails);
+var id = localStorage.getItem('id');
+console.log(id)
 
-blogsBox.forEach((element) => {
-    blog.insertAdjacentHTML('afterbegin', `
+blog.insertAdjacentHTML('afterbegin', `
    
-            <h2>${element.title}</h2>
-            <img src="${element.imagePicker}" class = "img-post"></img>
+            <h2>${blogsBox[id].title}</h2>
+            <img src="${blogsBox[id].imagePicker}" class = "img-post"></img>
             <p class="date">jan 26th 2023</p>
-            <p class="date">${element.author}</p>
+            <p class="date">${blogsBox[id].author}</p>
 
-            <p class="text">${element.article}</p>
+            <p class="text">${blogsBox[id].article}</p>
             <!-- <div class="comment">
                 <p>1</p>
                 <p>comment</p>
             </div> -->
-        `)
-});
+        `);
 
 const form = document.querySelector('#form');
 const submit = document.querySelector('#submit');
@@ -31,11 +31,33 @@ submit.addEventListener('click', submitComment)
 
 addFeedback = [];
 let positiveComment = false;
-let likecount = 0;
+let likeCount = 0;
 
 function submitComment(e) {
     const userForm = userName.value;
     const commentForm = comment.value
+    if (userForm && commentForm !== '') {
+        newComment = {
+            "id": Math.floor((Math.random() * 1000) + 1),
+            "userName": userForm,
+            "userComment": commentForm,
+            "typeOffComment": positiveComment,
+
+
+
+        }
+        addFeedback.push(newComment)
+        if (positiveComment === true) {
+            addLikes()
+
+        }
+
+        resetSubmitForm()
+
+        addFeedback(newComment)
+
+
+    }
     e.preventDefault();
 }
 
@@ -43,14 +65,42 @@ function likeBlog() {
     likes.classList.contains('img-react')
     if (likes.classList.contains('.img-react')) {
         likes.innerHTML = ` <img src="images/like.png" alt="" class="img-react">`
+        positiveComment = true;
     } else {
         likes.innerHTML = ` <img src="images/like.png" alt="" class="img-react">`
+        positiveComment = false;
     }
 
 
 }
 
 
+function addLikes() {
+    likeCount++
+    count.innerHTML = likeCount
+}
+
+function resetSubmitForm() {
+    userName.value = '';
+    comment.value = '';
+    likes.innerHTML = ` <img src="images/like.png" alt="" class="img-react">`;
+    positiveComment = false;
+}
+
+
+function addFeedback(element) {
+    const msg = (element.userName).charAt(0)
+    const div = document.createElement('div');
+    div.classList = 'comment-box'
+
+    div.id = item.id;
+    div.innerHTML = ` <div>
+    <p class="text">${element.msg}</p>
+    <h3>${element.userName}</h3>
+</div>`
+
+    commentsCount.insertAdjacentElement('beforeend', div)
+}
 
 
 form.addEventListener('submit', (e) => {

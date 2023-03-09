@@ -86,7 +86,8 @@ function showData() {
     blogList.forEach(function(element, index) {
         tableData.innerHTML += `
         
-        <tr>
+        <tr index='${index}'>   
+        <td>${index+1}</td> 
         <td>${element.title}</td>
         <td>${element.author}</td>
         <td><img id="img-url" src="${element.imagePicker}" alt="" width="30" height="30"></td>
@@ -112,7 +113,7 @@ function AddArticle() {
         var author = document.getElementById("author").value;
         // var imagePicker = document.getElementById("image-picker").src;
         var article = document.getElementById("article").value;
-        var imgUrl1;
+
 
 
         var blogList;
@@ -124,6 +125,7 @@ function AddArticle() {
         }
 
         blogList.push({
+            id: Math.random(),
             title: title,
             author: author,
             imagePicker: imgUrl,
@@ -137,8 +139,14 @@ function AddArticle() {
         document.getElementById("image-picker").src = "";
         document.getElementById("article").value = "";
 
+        // Set the id in the localStorage
+
+
     }
 }
+
+// let theBlogID = blogList.id;
+// JSON.parse(localstorage.setItem("id", theBlogID));
 
 function deleteArticle(index) {
     var blogList;
@@ -188,24 +196,6 @@ function updateArticle(index) {
     }
 }
 
-
-
-
-// var loadImage = document.querySelector("#img-url");
-// var imagePicker = document.querySelector("#image-picker");
-// loadImage.onchange = function() {
-//     if (loadImage.files[0].size < 5000000) {
-//         var fileUpload = new FileReader();
-//         fileUpload.onload = function(e) {
-//             imgUrl = e.target.result;
-//             imagePicker.src = imgUrl;
-//             console.log(imgUrl);
-//         }
-//         fileUpload.readAsDataURL(loadImage.files[0]);
-//     } else {
-//         alert("The File size is too big");
-//     }
-// }
 
 
 
