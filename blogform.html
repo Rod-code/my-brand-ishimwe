@@ -32,36 +32,37 @@
             </div>
         </div>
         <h2>Blog Form</h2>
-        <div class="div-form">
-            <form action="" id="form">
-                <div class="group-form" onsubmit="AddArticle()">
-                    <label for="">Title</label>
-                    <input type="text" name="title" id="title" placeholder="Title">
-                    <div class="fail hidden">the title is required</div>
-                </div>
-                <div class="group-form">
-                    <label for="">Author</label>
-                    <input type="text" name="author" id="author" placeholder="Enter your names">
-                    <div class="fail hidden">your names are required</div>
-                </div>
-                <div class="group-form">
-                    <label for="">pick an image</label>
-                    <input type="file" accept="image/png, image/jpg" id="image-picker">
-                    <div class="fail hidden">your image is required</div>
-                    <img id="img-url" src="images/account.png" alt="" width="30" height="30">
+        <!-- <div class="div-form"> -->
+        <form action="" id="form">
+            <div class="div-form">
+                <label for="">Title</label>
+                <input type="text" name="title" id="title" placeholder="Title">
+                <small>error message</small>
+            </div>
+            <div class="div-form">
+                <label for="">Author</label>
+                <input type="text" name="author" id="author" placeholder="Enter your names">
+                <small>error message</small>
+            </div>
+            <div class="div-form">
+                <label for="">pick an image</label>
+                <input type="file" accept="image/png, image/jpg" id="image-picker">
+                <small>error message</small>
+                <!-- <img id="img-url" src="images/account.png" alt="" width="30" height="30"> -->
 
-                </div>
-                <div class="group-form">
-                    <!-- <label for="">Date</label>
+            </div>
+            <div class="div-form">
+                <!-- <label for="">Date</label>
                 <input type="date" name="date" id="date"> -->
-                    <label for="">Article</label>
-                    <textarea name="article" id="article" cols="30" rows="10" placeholder="Write an article"></textarea>
-                    <div class="fail hidden">the content is required</div>
-                </div>
-                <input id="submit" type="submit" value="Publish" onclick="AddArticle()">
-                <input id="update" type="submit" value="Update" onclick="AddArticle()">
+                <label for="">Article</label>
+                <textarea name="article" id="article" cols="30" rows="10" placeholder="Write an article"></textarea>
+                <small>error message</small>
+            </div>
+            <input id="submit" type="submit" value="Publish" onclick="">
+            <input id="update" type="submit" value="Update" onclick="">
 
 
+<<<<<<< HEAD
             </form>
             <div class="container-row">
                 <table id="article-table">
@@ -73,16 +74,30 @@
                             <th>Image</th>
                             <th>Article</th>
                             <th>delete/edit</th>
+=======
+        </form>
+        <div class="container-row">
+            <table id="article-table">
+                <thead>
+                    <tr>
 
-                        </tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Image</th>
+                        <th>Article</th>
+                        <th>delete/edit</th>
+>>>>>>> intergration
 
-                    </thead>
-                    <tbody id="table-data"></tbody>
+                    </tr>
 
-                </table>
-            </div>
+                </thead>
+                <tbody id="table-data"></tbody>
+
+            </table>
+        </div>
+
     </section>
-    <script src="blogform.js"></script>
+    <script src="./js/blogform.js"></script>
 </body>
 
 </html>

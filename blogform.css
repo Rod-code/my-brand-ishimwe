@@ -80,7 +80,13 @@ h2 {
 }
 
 .div-form {
-    min-width: 600px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.div-form label {
+    display: inline-block;
+    margin-top: 5px;
 }
 
 label {
@@ -126,10 +132,21 @@ input[type="submit"] {
     margin-left: 300px;
 }
 
+small {
+    /* position: absolute;
+    bottom: 0;
+    left: 0; */
+    margin-left: 20px;
+    margin-top: -20px;
+}
+
 .fail {
     color: red;
     margin-top: 0px;
     font-size: 12px;
+}
+
+small {
     margin-left: 300px;
 }
 
@@ -187,4 +204,23 @@ thead tr th {
     border: none;
     cursor: pointer;
     margin: 10px;
+}
+
+.div-form.pass input,
+textarea {
+    border-color: green;
+}
+
+.div-form.fail input,
+textarea {
+    border-color: red;
+}
+
+.div-form small {
+    visibility: hidden;
+}
+
+.div-form.fail small {
+    color: red;
+    visibility: visible;
 }
