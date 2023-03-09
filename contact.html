@@ -30,17 +30,17 @@
         <h1>Contact me</h1>
         <div class="div-container">
             <div class="div-left">
-                <form action="" id="form" onsubmit="AddQuery();">
-                    <div div class="form-div">
+                <form action="" id="form">
+                    <div class="form-div">
                         <label for="">FullName</label>
                         <input type="text" name="fullname" id="fullname" placeholder="FullName">
-                        <div class="fail hidden">your name is required</div>
+                        <small></small>
                     </div>
 
                     <div class="form-div">
                         <label for="">Email</label>
                         <input type="email" name="email" id="email" placeholder="Email">
-                        <div class="fail hidden">your email is required</div>
+                        <small></small>
                     </div>
                     <!-- <div class="form-div">
                         <label for="">PhoneNumber</label>
@@ -48,13 +48,12 @@
                         <div class=" fail hidden ">your phone number is required</div>
                     </div> -->
 
-                    <div class="form-div ">
+                    <div class="form-div">
                         <label for=" ">Message</label>
-                        <textarea name="message " id="message" cols="30 " rows="10 " placeholder="Write a message "></textarea>
-                        <div class="fail hidden "> your message is required</div>
+                        <textarea name="message" id="content" cols=" 30 " rows="10 " placeholder="Write a message "></textarea>
+                        <small></small>
                     </div>
-
-                    <input type="submit" value="send a message" onclick="AddQuery()">
+                    <input type="submit" value="send a message ">
 
 
                 </form>
@@ -96,7 +95,7 @@
     </section>
     <section>
     </section>
-    <script src="contact.js "></script>
+    <script src="./js/contact.js "></script>
 </body>
 
 </html>

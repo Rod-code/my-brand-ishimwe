@@ -134,21 +134,32 @@ p {
     font-size: 15px;
 }
 
-
-/* span{
-    color: ;
-} */
+small {
+    /* position: absolute;
+    bottom: 0;
+    left: 0; */
+    margin-left: 40px;
+    color: red;
+}
 
 div {
     margin: 20px;
 }
 
-.fail {
-    color: red;
-    margin-top: 0px;
-    font-size: 12px;
+.form-div.pass input {
+    border-color: green;
 }
 
-.hidden {
-    display: none;
+.form-div.fail input,
+textarea {
+    border-color: red;
+}
+
+.form-div small {
+    visibility: hidden;
+}
+
+.form-div.fail small {
+    color: red;
+    visibility: visible;
 }
