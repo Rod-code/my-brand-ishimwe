@@ -27,13 +27,16 @@ form.addEventListener('submit', (e) => {
             body: JSON.stringify(data)
         })
         .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-            if (data.ok) {
+        .then((res) => {
+            console.log(res.data.email)
+            if (res.data) {
                 // set our token in LS
 
-                localStorage.setItem("authToken", data.token)
-                location.href = "./dashboard.html"
+                localStorage.setItem("auth", res.token)
+                localStorage.setItem("login", res.token.email)
+                    // localStorage.setItem('logIn', data.username);
+
+                // location.href = "https://ishimwe-portfolio.netlify.app/dashboard.html"
 
             } else {
 

@@ -29,34 +29,35 @@
     <section>
         <h1>Sign up</h1>
         <div class="container">
-            <form action="dasboard.html" method="post" class="form" id="form" onsubmit="checkInput()">
+            <form action="dasboard.html" method="post" class="form" id="form">
                 <div class="div-form ">
-                    <label for="username">username</label>
-                    <input type="text" name="name" id="username" placeholder="Names">
+                    <label for="fullname">username</label>
+                    <input type="text" name="name" id="fullname" placeholder="Names">
                     <small>error message</small>
                 </div>
                 <div class="div-form ">
-                    <label for="username">Email</label>
+                    <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Email">
                     <small>error message</small>
                 </div>
                 <div class="div-form">
-                    <label for="username">Password</label>
+                    <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="Password">
                     <small>error message</small>
                 </div>
                 <div class="div-form">
-                    <label for="username">Confirm Password</label>
+                    <label for="password1">Confirm Password</label>
                     <input type="password" name="password" id="password1" placeholder="Confirm Password">
                     <small>error message</small>
                 </div>
+
                 <p class="signup"> have an account <a href="./login.html" class="login">  Login up</a> here</p>
                 <input type="submit" value="Sign up" id="submit">
                 <!-- <button>submit</button> -->
             </form>
         </div>
     </section>
-    <script src="signup.js"></script>
+    <script src="./js/signup.js"></script>
 </body>
 
 </html>

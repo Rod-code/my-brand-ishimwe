@@ -1,11 +1,14 @@
+const fullname = document.getElementById("fullname")
+const email = document.getElementById("email")
+const content = document.getElementById("content")
 const form = document.getElementById('form');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     checkInput();
 
-    const fullname = document.getElementById("fullname")
-    const email = document.getElementById("email")
-    const content = document.getElementById("content")
+    const fullname = document.getElementById("fullname").value
+    const email = document.getElementById("email").value
+    const content = document.getElementById("content").value
 
     // have our values in one object
     const data = { fullname, email, content };
@@ -21,11 +24,12 @@ form.addEventListener('submit', (e) => {
         .then((response) => {
             return response.json()
         })
-        .then((data) => {
-            if (data.ok) {
-                alert(data.message)
+        .then((res) => {
+            console.log(res);
+            if (res) {
+                alert(res.message)
             } else {
-                alert(data.errors)
+                alert(res.errors)
             }
 
         })
