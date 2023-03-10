@@ -13,7 +13,8 @@ form.addEventListener('submit', (e) => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     // const password1 = document.getElementById('password1').value;
-    const data = { fullname, email, password };
+    const isAdmin = true;
+    const data = { fullname, email, password, isAdmin };
 
     // use fetch method to interact with your login api endpoint
     fetch('https://dizzy-ruby-gilet.cyclic.app/api/v1/signup', {
@@ -28,10 +29,14 @@ form.addEventListener('submit', (e) => {
             console.log(res);
             // console.log("signup complete");
             if (res.data) {
-                //  console.log('Signup complete');
+
+                console.log(res, 'signup')
+                    //  console.log('Signup complete');
                 location.href = 'https://ishimwe-portfolio.netlify.app/login.html';
+
             } else {
                 alert(res.message);
+                // console.log(res, "error")
             }
             // return resp;
         })
