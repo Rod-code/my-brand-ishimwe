@@ -24,14 +24,14 @@ form.addEventListener('submit', (e) => {
             body: JSON.stringify(data)
         })
         .then((response) => response.json())
-        .then((resp) => {
-            console.log(resp);
+        .then((res) => {
+            console.log(res);
             // console.log("signup complete");
-            if (resp.data) {
+            if (res.data) {
                 //  console.log('Signup complete');
                 location.href = 'https://ishimwe-portfolio.netlify.app/login.html';
             } else {
-                alert(resp.message);
+                alert(res.message);
             }
             // return resp;
         })
