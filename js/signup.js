@@ -32,7 +32,7 @@ form.addEventListener('submit', (e) => {
 
                 console.log(res, 'signup')
                     //  console.log('Signup complete');
-                location.href = 'https://ishimwe-portfolio.netlify.app/login.html';
+                location.href = 'https://ishimwe-portfolio.netlify.app/dashboard.html';
 
             } else {
                 alert(res.message);
