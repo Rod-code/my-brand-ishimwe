@@ -34,9 +34,9 @@ form.addEventListener('submit', (e) => {
 
                 localStorage.setItem("auth", res.token)
                 localStorage.setItem("login", res.token.email)
-                    // localStorage.setItem('logIn', data.username);
+                localStorage.setItem('logIn', data.username);
 
-                // location.href = "https://ishimwe-portfolio.netlify.app/dashboard.html"
+                location.href = "https://ishimwe-portfolio.netlify.app/dashboard.html"
 
             } else {
 
