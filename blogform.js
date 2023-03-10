@@ -45,7 +45,7 @@ const fetchBlogs = async() => {
         const blogs = response.json();
         return blogs;
     } catch (error) {
-        console.log('Error fetching blogs: ', error.message);
+        alert(error.message);
     }
 };
 

@@ -7,7 +7,7 @@ const login = document.getElementById('submit');
 
 
 
-users = JSON.parse(localStorage.getItem('users')) || [];
+// users = JSON.parse(localStorage.getItem('users')) || [];
 
 
 form.addEventListener('submit', (e) => {
@@ -28,15 +28,13 @@ form.addEventListener('submit', (e) => {
         })
         .then((response) => response.json())
         .then((res) => {
-            console.log(res.data.email)
+            console.log(res.data)
             if (res.data) {
                 // set our token in LS
 
-                localStorage.setItem("auth", res.token)
-                localStorage.setItem("login", res.token.email)
-                localStorage.setItem('logIn', data.username);
-
-                location.href = "https://ishimwe-portfolio.netlify.app/dashboard.html"
+                localStorage.setItem("auth", res.token);
+                // localStorage.setItem("login", res.token.email)
+                location.href = "https://ishimwe-portfolio.netlify.app/index.html"
 
             } else {
 

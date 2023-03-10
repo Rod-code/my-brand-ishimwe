@@ -1,8 +1,8 @@
 const form = document.getElementById('form');
-// const title = document.getElementById("title")
-// const author = document.getElementById("author")
-// const imagePicker = document.getElementById("image-picker")
-// const article = document.getElementById("article")
+const title = document.getElementById("title")
+const author = document.getElementById("author")
+const imageUrl = document.getElementById("image-picker")
+const content = document.getElementById("article")
 
 
 
@@ -13,34 +13,34 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     checkInput();
     // signIn();
-    //     const title = document.getElementById("title")
-    //     const author = document.getElementById("author")
-    //     const imageUrl = document.getElementById("image-picker")
-    //     const content = document.getElementById("article")
+    const title = document.getElementById("title")
+    const author = document.getElementById("author")
+    const imageUrl = document.getElementById("image-picker")
+    const content = document.getElementById("article")
 
-    //     // have our values in one object
-    //     const data = { title, author, imageUrl, content };
+    // have our values in one object
+    const data = { title, author, imageUrl, content };
 
-    //     // interaction with the API endpoint
-    //     fetch('https://dizzy-ruby-gilet.cyclic.app/api/v1/blogs', {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json"
-    //             },
-    //             body: JSON.stringify(data)
-    //         })
-    //         .then((response) => {
-    //             return response.json()
-    //         })
-    //         .then((blog) => {
-    //             console.log(blog)
-    //             if (blog.data) {
-    //                 alert(data.message)
-    //             } else {
-    //                 alert(data.errors.name)
-    //             }
-    //         })
-    //         .catch(error => alert(error))
+    // interaction with the API endpoint
+    fetch('http://localhost:6001/api/v1/blogs', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then((response) => {
+            return response.json()
+        })
+        .then((blog) => {
+            console.log(blog)
+            if (blog.data) {
+                alert(data.message)
+            } else {
+                alert(data.errors.name)
+            }
+        })
+        .catch(error => alert(error))
 });
 
 
@@ -67,7 +67,7 @@ function checkInput() {
     // const usernameValue = username.value.trim();
     const titleValue = title.value.trim();
     const authorValue = author.value.trim();
-    const imageUrlValue = imageUrl.value.trim().src;
+    const imageUrlValue = imageUrl.value.trim();
     const contentValue = content.value.trim();
 
 
@@ -126,7 +126,7 @@ const fetchBlogs = async() => {
         const blogs = response.json();
         return blogs;
     } catch (error) {
-        console.log('Error fetching blogs: ', error.message);
+        console.log('No token provided: ', error.message);
     }
 };
 
@@ -136,7 +136,8 @@ fetchBlogs()
         res.data.forEach((element, index) => {
             blogsTable.insertAdjacentHTML(
                 'afterbegin',
-                `
+                ` 
+        <tr>
         <td>${index+1}</td> 
         <td>${element.title}</td>
         <td>${element.author}</td>
@@ -147,27 +148,29 @@ fetchBlogs()
       `,
             );
         });
-    })
+    }).then(() => handleDelete());
 
 
 
 
-const deleteBlog = () => {
-    fetch('https://dizzy-ruby-gilet.cyclic.app/api/v1/blogs', {
-            method: "DELETE"
-        })
-        .then((resp) => resp.json())
-        .then((data) => {
-            if (data) {
-                data.splice(_id, 1);
+function handleDelete() {
+    //   const deleteButtons = [
+    //     ...document.getElementsByClassName('delete-button-blogs'),
+    //   ];
 
+    //*Deleting blogs from the t-body
+
+    var deleteButtons = document.querySelectorAll('.delete-button');
+    for (var i = 0; i < deleteButtons.length; i++) {
+        deleteButtons[i].onclick = function() {
+            var tr = this.parentElement.parentElement;
+            var id = tr.getAttribute('index');
+            blogsData.splice(id, 1);
+            localStorage.setItem('blogsData', JSON.stringify(blogsData));
+            var ans = alert('Are you sure you want to delete this blog?');
+            if (ans == true) {
                 tr.remove();
-                alert("Poof! Your blog has been deleted!", {
-                    icon: "success",
-                });
-            } else {
-                alert("Your blog is safe!");
             }
-        });
-
+        };
+    }
 }

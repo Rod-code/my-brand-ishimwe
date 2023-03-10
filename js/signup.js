@@ -10,7 +10,7 @@ form.addEventListener('submit', (e) => {
     checkInput();
 
     const fullname = document.getElementById('fullname').value;
-    const email = document.getElementById('email').value.value;
+    const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     // const password1 = document.getElementById('password1').value;
     const data = { fullname, email, password };
@@ -24,18 +24,15 @@ form.addEventListener('submit', (e) => {
             body: JSON.stringify(data)
         })
         .then((response) => response.json())
-
-    .then((resp) => {
+        .then((resp) => {
             console.log(resp);
-            // console.log("Signup complete");
-            // if (resp.data) {
-            /     / / console.log('Signup complete');
-            //     // location.href = '../Login/login.html';
-            //     // location.href =
-            //     //   'https://majestic-melomakarona-d7b4f4.netlify.app/api/register';
-            // } else {
-            //     alert(resp.message);
-            // }
+            // console.log("signup complete");
+            if (resp.data) {
+                //  console.log('Signup complete');
+                location.href = 'https://ishimwe-portfolio.netlify.app/login.html';
+            } else {
+                alert(resp.message);
+            }
             // return resp;
         })
         .catch(err => alert(err))
