@@ -167,7 +167,7 @@ fetchBlogs()
 async function deleteBlog(index) {
     console.log(index);
     // const token = JSON.parse(localStorage.getItem('token'));
-    let blogId = urlParams.get('id');
+    // let blogId = urlParams.get('id');
     await fetch(`http://localhost:6001/api/v1/blogs/${index}`, {
             method: "DELETE",
             headers: {
