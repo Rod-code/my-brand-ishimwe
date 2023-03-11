@@ -166,7 +166,7 @@ fetchBlogs()
 async function deleteBlog(index) {
     console.log(index);
     // const token = JSON.parse(localStorage.getItem('token'));
-    await fetch(`https://dizzy-ruby-gilet.cyclic.app/api/v1/blogs/${index}`, {
+    await fetch(`http://localhost:6000/api/v1/blogs/${index}`, {
             method: "DELETE",
             headers: {
                 // "Authorization": token
