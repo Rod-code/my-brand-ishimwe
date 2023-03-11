@@ -22,11 +22,12 @@ form.addEventListener('submit', (e) => {
     const data = { title, author, imageUrl, content };
 
     // interaction with the API endpoint
-    // const auth = JSON.parse(localStorage.getItem('auth'));
+    const auth = JSON.parse(localStorage.getItem('auth'));
     fetch('http://localhost:6001/api/v1/blogs', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": auth
 
 
             },
@@ -166,12 +167,12 @@ fetchBlogs()
 
 async function deleteBlog(index) {
     console.log(index);
-    // const token = JSON.parse(localStorage.getItem('token'));
+    const token = JSON.parse(localStorage.getItem('token'));
     // let blogId = urlParams.get('id');
     await fetch(`http://localhost:6001/api/v1/blogs/${index}`, {
             method: "DELETE",
             headers: {
-                "Authorization": localStorage.getItem('auth')
+                "Authorization": token
             }
         })
         .then((resp) => {
