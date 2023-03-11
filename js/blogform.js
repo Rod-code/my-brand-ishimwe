@@ -22,10 +22,12 @@ form.addEventListener('submit', (e) => {
     const data = { title, author, imageUrl, content };
 
     // interaction with the API endpoint
-    fetch('http://localhost:6001/api/v1/blogs', {
+    const token = JSON.parse(localStorage.getItem('token'));
+    fetch('https://dizzy-ruby-gilet.cyclic.app/api/v1/blogs', {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": token
             },
             body: JSON.stringify(data)
         })
@@ -42,6 +44,10 @@ form.addEventListener('submit', (e) => {
         })
         .catch(error => alert(error))
 });
+
+
+
+
 
 
 // if (isformValid() == true) {
@@ -143,34 +149,38 @@ fetchBlogs()
         <td>${element.author}</td>
         <td><img id="img-url" src="${element.imageUrl}" alt="" width="30" height="30"></td>
         <td>${element.content} </td>
-        <td><button onclick="deleteArticle(${index})" class="delete-button">Delete</button><button onclick="updateArticle(${index})" class="edit-button">Edit</button></td>
+        <td><button onclick="deleteBlog(${index})" class="delete-button">Delete</button><button onclick="updateArticle(${index})" class="edit-button">Edit</button></td>
         </tr>
       `,
             );
         });
-    }).then(() => handleDelete());
+    })
+
+
+
+//*Deleting blogs from the t-body
 
 
 
 
-function handleDelete() {
-    //   const deleteButtons = [
-    //     ...document.getElementsByClassName('delete-button-blogs'),
-    //   ];
-
-    //*Deleting blogs from the t-body
-
-    var deleteButtons = document.querySelectorAll('.delete-button');
-    for (var i = 0; i < deleteButtons.length; i++) {
-        deleteButtons[i].onclick = function() {
-            var tr = this.parentElement.parentElement;
-            var id = tr.getAttribute('index');
-            blogsData.splice(id, 1);
-            localStorage.setItem('blogsData', JSON.stringify(blogsData));
-            var ans = alert('Are you sure you want to delete this blog?');
-            if (ans == true) {
-                tr.remove();
+async function deleteBlog(index) {
+    console.log(index);
+    // const token = JSON.parse(localStorage.getItem('token'));
+    await fetch(`https://dizzy-ruby-gilet.cyclic.app/api/v1/blogs/${index}`, {
+            method: "DELETE",
+            headers: {
+                // "Authorization": token
             }
-        };
-    }
+        })
+        .then((resp) => {
+            return resp.json();
+        })
+        .then((data) => {
+            console.log(data);
+            // alert(data.message);
+        })
+        .catch((error) => alert(error));
+
+    alert("Blog has been deleted successfully")
+        // window.location.reload();
 }
