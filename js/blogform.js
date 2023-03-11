@@ -23,11 +23,11 @@ form.addEventListener('submit', (e) => {
 
     // interaction with the API endpoint
     const token = JSON.parse(localStorage.getItem('token'));
-    fetch('https://dizzy-ruby-gilet.cyclic.app/api/v1/blogs', {
+    fetch('http://localhost:6001/api/v1/blogs', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": token
+
             },
             body: JSON.stringify(data)
         })
