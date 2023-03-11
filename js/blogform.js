@@ -27,7 +27,7 @@ form.addEventListener('submit', (e) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: localStorage.getItem('auth')
+
 
             },
             body: JSON.stringify(data)
@@ -171,7 +171,7 @@ async function deleteBlog(index) {
     await fetch(`http://localhost:6001/api/v1/blogs/${index}`, {
             method: "DELETE",
             headers: {
-                // "Authorization": token
+                "Authorization": localStorage.getItem('auth')
             }
         })
         .then((resp) => {
