@@ -22,11 +22,12 @@ form.addEventListener('submit', (e) => {
     const data = { title, author, imageUrl, content };
 
     // interaction with the API endpoint
-    const token = JSON.parse(localStorage.getItem('token'));
+    // const auth = JSON.parse(localStorage.getItem('auth'));
     fetch('http://localhost:6001/api/v1/blogs', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: localStorage.getItem('auth')
 
             },
             body: JSON.stringify(data)
