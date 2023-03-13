@@ -17,7 +17,7 @@ body {
 .sidebar {
     background: #34B5D1;
     width: 300px;
-    height: 140vh;
+    height: 200vh;
 }
 
 .panel {
@@ -186,10 +186,9 @@ thead tr th {
     color: red;
 }
 
-
-/* #update {
+#update {
     display: none;
-} */
+}
 
 .delete-button {
     color: red;

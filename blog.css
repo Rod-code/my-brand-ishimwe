@@ -9,7 +9,7 @@ body {
     height: 100vh;
     width: 100vw;
     font-family: 'Open Sans';
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 header {
@@ -57,7 +57,7 @@ a {
 
 section {
     width: 100%;
-    height: 90vh;
+    height: 300vh;
     background: #D7ECFF;
 }
 
