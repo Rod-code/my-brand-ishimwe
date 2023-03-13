@@ -124,7 +124,7 @@ input[type="submit"] {
     margin-bottom: 20px;
 }
 
-#img-url {
+#img-account {
     width: 100px;
     height: 100px;
     background-position: center;
@@ -186,9 +186,10 @@ thead tr th {
     color: red;
 }
 
-#update {
+
+/* #update {
     display: none;
-}
+} */
 
 .delete-button {
     color: red;

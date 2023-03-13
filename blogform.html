@@ -49,18 +49,19 @@
                 <label for="">pick an image</label>
                 <input type="file" accept="image/png, image/jpg" id="image-picker">
                 <small>error message</small>
-                <!-- <img id="img-url" src="images/account.png" alt="" width="30" height="30"> -->
+                <img id="img-account" src="images/account.png" alt="" width="30" height="30">
 
             </div>
             <div class="div-form">
                 <!-- <label for="">Date</label>
                 <input type="date" name="date" id="date"> -->
                 <label for="">Article</label>
-                <textarea name="article" id="article" cols="30" rows="10" placeholder="Write an article"></textarea>
+                <textarea name="article" id="content" cols="30" rows="10" placeholder="Write an article"></textarea>
                 <small>error message</small>
             </div>
             <input id="submit" type="submit" value="Publish" onclick="">
-            <input id="update" type="submit" value="Update" onclick="">
+            <input id="update" type="submit" value="Update" onclick="" disabled>
+            <input id="reset" type="submit" value="Reset" onclick="">
 
 
         </form>

@@ -17,7 +17,7 @@ form.addEventListener('submit', (e) => {
     const data = { fullname, email, password, isAdmin };
 
     // use fetch method to interact with your login api endpoint
-    fetch('https://dizzy-ruby-gilet.cyclic.app/api/v1/signup', {
+    fetch('http://localhost:6001/api/v1/signup', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -33,7 +33,7 @@ form.addEventListener('submit', (e) => {
                 console.log(res, 'signup')
                     //  console.log('Signup complete');
                 alert(res.message);
-                location.href = 'https://ishimwe-portfolio.netlify.app/login.html';
+                location.href = './login.html';
 
             } else {
                 alert(res.message);

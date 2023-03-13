@@ -1,51 +1,104 @@
-const form = document.getElementById('form');
-const title = document.getElementById("title")
-const author = document.getElementById("author")
-const imageUrl = document.getElementById("image-picker")
-const content = document.getElementById("article")
+var form = document.getElementById('form');
+var title = document.getElementById("title")
+var author = document.getElementById("author")
+var imagePicker = document.getElementById("image-picker")
+var content = document.getElementById("article")
+var submitButton = document.getElementById("submit")
+var updateButton = document.getElementById("update")
+var imgAccount = document.getElementById("img-account")
+var imgUrl
 
 
-
-
-
-
-form.addEventListener('submit', (e) => {
+submitButton.onclick = function(e) {
     e.preventDefault();
-    checkInput();
-    // signIn();
-    const title = document.getElementById("title")
-    const author = document.getElementById("author")
-    const imageUrl = document.getElementById("image-picker")
-    const content = document.getElementById("article")
+    createBlog(title, author, content);
 
-    // have our values in one object
-    const data = { title, author, imageUrl, content };
+    //   getDataFromLocal();
+    form.reset('');
+    //   closeModalBtn.click();
+};
 
-    // interaction with the API endpoint
-    const auth = JSON.parse(localStorage.getItem('auth'));
-    fetch('http://localhost:6001/api/v1/blogs', {
-            method: "POST",
+const createBlog = async(title, author, content, imageUrl) => {
+    var title = document.getElementById('title').value;
+    var author = document.getElementById('author').value;
+    var content = document.getElementById('content').value;
+    // var imageUrl = imgUrl;
+    try {
+
+        const response = await fetch('http://localhost:6001/api/v1/blogs/', {
+            method: 'POST',
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": auth
-
-
+                'content-type': 'application/json',
+                // Authorization: `JWT ${localStorage.getItem('authToken')}`,
             },
-            body: JSON.stringify(data)
-        })
-        .then((response) => {
-            return response.json()
-        })
-        .then((blog) => {
-            console.log(blog)
-            if (blog.data) {
-                alert(data.message)
-            } else {
-                alert(data.errors.name)
-            }
-        })
-        .catch(error => alert(error))
-});
+            body: JSON.stringify({ title, author, content, imageUrl }),
+        });
+        const data = await response.json();
+        console.log(data);
+        if (data) {
+            location.reload();
+        } else {
+            alert('Error creating blog');
+        }
+    } catch (error) {
+        console.log('Error creating blog:', error.message);
+    }
+};
+
+imagePicker.onchange = function() {
+    if (imagePicker.files[0].size < 5000000) {
+        //5000000 ~ 5mb (or 5000000bytes)
+        var fReader = new FileReader();
+        fReader.onload = function(e) {
+            imgUrl = e.target.result;
+            imgAccount.src = imgUrl;
+            // console.log(imgUrl);
+        };
+        fReader.readAsDataURL(imagePicker.files[0]);
+    } else {
+        alert('The File size is too big');
+    }
+};
+
+
+
+// form.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     checkInput();
+//     // signIn();
+//     const title = document.getElementById("title")
+//     const author = document.getElementById("author")
+//     const imageUrl = document.getElementById("image-picker")
+//     const content = document.getElementById("article")
+
+//     // have our values in one object
+//     const data = { title, author, imageUrl, content };
+
+//     // interaction with the API endpoint
+//     // const auth = JSON.parse(localStorage.getItem('auth'));
+//     fetch('http://localhost:6001/api/v1/blogs', {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json",
+//                 // "Authorization": auth
+
+
+//             },
+//             body: JSON.stringify(data)
+//         })
+//         .then((response) => {
+//             return response.json()
+//         })
+//         .then((blog) => {
+//             console.log(blog)
+//             if (blog.data) {
+//                 alert(data.message)
+//             } else {
+//                 alert(data.errors.name)
+//             }
+//         })
+//         .catch(error => alert(error))
+// });
 
 
 
@@ -140,8 +193,9 @@ const fetchBlogs = async() => {
 
 fetchBlogs()
     .then((res) => {
-        console.log(res);
+        // console.log(res);
         res.data.forEach((element, index) => {
+            // console.log(element._id);
             blogsTable.insertAdjacentHTML(
                 'afterbegin',
                 ` 
@@ -151,7 +205,7 @@ fetchBlogs()
         <td>${element.author}</td>
         <td><img id="img-url" src="${element.imageUrl}" alt="" width="30" height="30"></td>
         <td>${element.content} </td>
-        <td><button onclick="deleteBlog(${index})" class="delete-button">Delete</button><button onclick="updateArticle(${index})" class="edit-button">Edit</button></td>
+        <td><button onclick="deleteBlog('${element._id}')" class="delete-button">Delete</button><button onclick="editBlog('${element._id}')" class="edit-button">Edit</button></td>
         </tr>
       `,
             );
@@ -163,27 +217,100 @@ fetchBlogs()
 //*Deleting blogs from the t-body
 
 
+function deleteBlog(id) {
+    var ans = confirm('Are you sure you want to delete this blog?');
 
+    // console.log(id);
+    if (ans == true) {
 
-async function deleteBlog(index) {
-    console.log(index);
-    const token = JSON.parse(localStorage.getItem('token'));
-    // let blogId = urlParams.get('id');
-    await fetch(`http://localhost:6001/api/v1/blogs/${index}`, {
-            method: "DELETE",
-            headers: {
-                "Authorization": token
-            }
-        })
-        .then((resp) => {
-            return resp.json();
-        })
-        .then((data) => {
-            console.log(data);
-            // alert(data.message);
-        })
-        .catch((error) => alert(error));
+        fetch(`http://localhost:6001/api/v1/blogs/${id}`, {
 
-    alert("Blog has been deleted successfully")
-        // window.location.reload();
+                method: 'DELETE',
+                headers: {
+                    'content-type': 'application/json',
+                    Authorization: `JWT ${localStorage.getItem('token')}`,
+                },
+                // body: JSON.stringify(),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                location.reload();
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    }
 }
+
+
+
+
+
+const updateBlog = async(id) => {
+    try {
+        addBlogBtn.click();
+        const getBlog = await fetch(`http://localhost:6001/api/v1/blogs/${id}`);
+        const res = await getBlog.json();
+        // console.log("This is the post: ", res);
+        imgAccount.style.display = 'block';
+        imgAccount.src = res.data.imgUrl;
+
+        // console.log(res.data.author);
+        author.value = res.data.author;
+        title.value = res.data.title;
+        content.value = res.data.content;
+        submitButton.disabled = true;
+        updateButton.disabled = false;
+        // document.getElementById("submit").style.display = "block";
+        //             document.getElementById("update").style.display = "none";
+        localStorage.setItem('editBlog', id);
+    } catch (error) {
+        console.log('Error getting Blog: ', error.message);
+    }
+};
+
+const editBlog = async(title, author, content) => {
+    var _id = localStorage.getItem('blogEdit');
+    // alert(_id);
+    var title = document.getElementById('title').value;
+    var author = document.getElementById('author').value;
+    var content = document.getElementById('content').value;
+    // var imageUrl = imgUrl;
+    try {
+        // let id;
+        const response = await fetch(
+            `http://localhost:6001/api/v1/blogs/${_id}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json',
+                    Authorization: `JWT ${localStorage.getItem('authToken')}`,
+                },
+                body: JSON.stringify({
+                    title: title,
+                    author: author,
+                    content: content,
+                    // imageUrl,
+                }),
+            },
+        );
+        const data = await response.json();
+        if (data) {
+            location.reload();
+        } else {
+            console.log('Error editing blog', error);
+            // alert("Error editing blog");
+        }
+    } catch (error) {
+        console.log('Error editing blog: ', error.message);
+    }
+};
+
+updateButton.onclick = () => {
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const content = document.getElementById('content').value;
+    // const imageUrl = imgUrl;
+    // console.log(title);
+    editBlog(title, author, content);
+};

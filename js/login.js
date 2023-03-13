@@ -19,7 +19,7 @@ form.addEventListener('submit', (e) => {
     const data = { email, password }
 
     // use fetch method to interact with your login api endpoint
-    fetch('https://dizzy-ruby-gilet.cyclic.app/api/v1/login', {
+    fetch('http://localhost:6001/api/v1/login', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -32,10 +32,10 @@ form.addEventListener('submit', (e) => {
             if (res.data) {
                 // set our token in LS
 
-                localStorage.setItem("auth", res.token);
+                localStorage.setItem("token", res.token);
                 // localStorage.setItem("login", res.token.email)
                 alert(res.message)
-                location.href = "https://ishimwe-portfolio.netlify.app/dashboard.html"
+                location.href = "./dashboard.html"
 
             } else {
 

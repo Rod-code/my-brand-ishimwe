@@ -40,7 +40,9 @@ fetchBlogs()
         });
     })
 
-
+// <p>${createdAt.getDate()}-${
+//     createdAt.getMonth() + 1
+//   }-${createdAt.getFullYear()}</p>
 
 // const blogContainer = document.querySelector(".container");
 
