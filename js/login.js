@@ -19,7 +19,7 @@ form.addEventListener('submit', (e) => {
     const data = { email, password }
 
     // use fetch method to interact with your login api endpoint
-    fetch('http://localhost:6001/api/v1/login', {
+    fetch('https://dizzy-ruby-gilet.cyclic.app/api/v1/login', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

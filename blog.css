@@ -104,6 +104,9 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
 }
 
 .img-react {

@@ -1,4 +1,4 @@
-const queriesTable = document.querySelector('tbody');
+const queriesTable = document.querySelector('#tbody');
 // const articles = document.querySelector("#t-body");
 
 const fetchQueries = async() => {

@@ -26,7 +26,7 @@ const createBlog = async(title, author, content, imageUrl) => {
     // var imageUrl = imgUrl;
     try {
 
-        const response = await fetch('http://localhost:6001/api/v1/blogs/', {
+        const response = await fetch('https://dizzy-ruby-gilet.cyclic.app/api/v1/blogs/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -224,7 +224,7 @@ function deleteBlog(id) {
     // console.log(id);
     if (ans == true) {
 
-        fetch(`http://localhost:6001/api/v1/blogs/${id}`, {
+        fetch(`https://dizzy-ruby-gilet.cyclic.app/api/v1/blogs/${id}`, {
 
                 method: 'DELETE',
                 headers: {
@@ -309,7 +309,7 @@ function deleteBlog(id) {
 // };
 
 const getBlogToEdit = async(id) => {
-    const getBlog = await fetch(`http://localhost:6001/api/v1/blogs/${id}`);
+    const getBlog = await fetch(`https://dizzy-ruby-gilet.cyclic.app/api/v1/blogs/${id}`);
 
     const res = await getBlog.json();
     console.log(res);
@@ -324,7 +324,7 @@ const getBlogToEdit = async(id) => {
     document.getElementById("update").style.display = "block";
     localStorage.setItem('blogToEdit', id);
 
-    var _id = localStorage.getItem('editBlog');
+    // var _id = localStorage.getItem('editBlog');
     // alert(_id);
 
 }
@@ -340,7 +340,7 @@ const editBlog = async(title, author, content, imageUrl) => {
     try {
         // let id;
         const response = await fetch(
-            `http://localhost:6001/api/v1/blogs/${id}`, {
+            `https://dizzy-ruby-gilet.cyclic.app/api/v1/blogs/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -371,7 +371,7 @@ updateButton.onclick = () => {
     const author = document.getElementById('author').value;
     const content = document.getElementById('content').value;
     const imageUrl = imgUrl;
-    // console.log(title);
+    console.log(title);
     editBlog(title, author, content, imageUrl)
 }
 
